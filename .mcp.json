@@ -1,1 +1,251 @@
-{"name":"gdpr-compliance-ai-mcp","vendor":"MEOK AI Labs","homepage":"https://meok.ai","repository":"https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp","runtime":"python","entrypoint":"server.py"}
+{
+  "name": "gdpr-compliance-ai-mcp",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** -- Sovereign AI tools for everyone.",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "classify_processing",
+      "description": "Classify data processing activities per GDPR articles. Determines which",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processing_description": {
+            "type": "string"
+          },
+          "data_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data_subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "processing_purposes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "automated_decision_making": {
+            "type": "boolean"
+          },
+          "large_scale": {
+            "type": "boolean"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "processing_description",
+          "data_categories",
+          "data_subjects",
+          "processing_purposes"
+        ]
+      }
+    },
+    {
+      "name": "lawful_basis_assessment",
+      "description": "Determine the appropriate lawful basis for processing under GDPR Article 6.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processing_purpose": {
+            "type": "string"
+          },
+          "data_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "controller_type": {
+            "type": "string"
+          },
+          "relationship_with_data_subject": {
+            "type": "string"
+          },
+          "ai_processing": {
+            "type": "boolean"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "processing_purpose",
+          "data_categories"
+        ]
+      }
+    },
+    {
+      "name": "dpia_generator",
+      "description": "Generate a Data Protection Impact Assessment per GDPR Article 35.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_name": {
+            "type": "string"
+          },
+          "system_description": {
+            "type": "string"
+          },
+          "processing_purposes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data_subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data_volume": {
+            "type": "string"
+          },
+          "retention_period": {
+            "type": "string"
+          },
+          "third_party_sharing": {
+            "type": "boolean"
+          },
+          "international_transfers": {
+            "type": "boolean"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_name",
+          "system_description",
+          "processing_purposes",
+          "data_categories",
+          "data_subjects"
+        ]
+      }
+    },
+    {
+      "name": "rights_request_handler",
+      "description": "Handle data subject rights requests under GDPR Articles 15-22.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "right_invoked": {
+            "type": "string"
+          },
+          "data_subject_description": {
+            "type": "string"
+          },
+          "processing_context": {
+            "type": "string"
+          },
+          "ai_system_involved": {
+            "type": "boolean"
+          },
+          "request_details": {
+            "type": "string"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "right_invoked",
+          "data_subject_description",
+          "processing_context"
+        ]
+      }
+    },
+    {
+      "name": "breach_notification",
+      "description": "Assess breach severity and notification requirements under GDPR Articles",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "breach_description": {
+            "type": "string"
+          },
+          "data_categories_affected": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "number_of_records": {
+            "type": "integer"
+          },
+          "breach_type": {
+            "type": "string"
+          },
+          "detection_timestamp": {
+            "type": "string"
+          },
+          "ai_system_involved": {
+            "type": "boolean"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "breach_description",
+          "data_categories_affected"
+        ]
+      }
+    },
+    {
+      "name": "crosswalk_to_eu_ai_act",
+      "description": "Map GDPR requirements to EU AI Act obligations. Shows where GDPR",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "gdpr_articles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "focus_area": {
+            "type": "string"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    }
+  ]
+}

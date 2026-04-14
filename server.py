@@ -352,9 +352,9 @@ def classify_processing(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _check_rate_limit(caller, tier):
-        return json.dumps({"error": err})
+        return {"error": err}
 
     special_categories = {"racial or ethnic origin", "political opinions", "religious beliefs",
                          "philosophical beliefs", "trade union membership", "genetic data",
@@ -428,7 +428,7 @@ def classify_processing(
         },
     }
 
-    return json.dumps(result, indent=2)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -458,9 +458,9 @@ def lawful_basis_assessment(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _check_rate_limit(caller, tier):
-        return json.dumps({"error": err})
+        return {"error": err}
 
     purpose_lower = processing_purpose.lower()
     bases_assessment = {}
@@ -566,7 +566,7 @@ def lawful_basis_assessment(
         },
     }
 
-    return json.dumps(result, indent=2)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -604,9 +604,9 @@ def dpia_generator(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _check_rate_limit(caller, tier):
-        return json.dumps({"error": err})
+        return {"error": err}
 
     desc_lower = system_description.lower()
     is_ai = any(w in desc_lower for w in ["ai", "machine learning", "neural", "model", "algorithm", "automated"])
@@ -725,7 +725,7 @@ def dpia_generator(
         m for m in dpia["section_4_mitigation_measures"]["organisational_measures"] if m
     ]
 
-    return json.dumps(dpia, indent=2)
+    return dpia
 
 
 # ---------------------------------------------------------------------------
@@ -756,9 +756,9 @@ def rights_request_handler(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _check_rate_limit(caller, tier):
-        return json.dumps({"error": err})
+        return {"error": err}
 
     right_map = {
         "access": "Art.15",
@@ -772,7 +772,7 @@ def rights_request_handler(
 
     article_key = right_map.get(right_invoked)
     if not article_key or article_key not in DATA_SUBJECT_RIGHTS:
-        return json.dumps({"error": f"Unknown right: {right_invoked}. Valid: {list(right_map.keys())}"})
+        return {"error": f"Unknown right: {right_invoked}. Valid: {list(right_map.keys())}"}
 
     right_info = DATA_SUBJECT_RIGHTS[article_key]
 
@@ -860,7 +860,7 @@ def rights_request_handler(
         ],
     }
 
-    return json.dumps(result, indent=2)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -892,9 +892,9 @@ def breach_notification(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _check_rate_limit(caller, tier):
-        return json.dumps({"error": err})
+        return {"error": err}
 
     if detection_timestamp and detection_timestamp != "now":
         try:
@@ -1018,7 +1018,7 @@ def breach_notification(
 
     result["immediate_actions"] = [a for a in result["immediate_actions"] if a]
 
-    return json.dumps(result, indent=2)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -1043,9 +1043,9 @@ def crosswalk_to_eu_ai_act(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _check_rate_limit(caller, tier):
-        return json.dumps({"error": err})
+        return {"error": err}
 
     focus_filters = {
         "transparency": ["Art.13_14_transparency", "Art.22_automated"],
@@ -1113,7 +1113,7 @@ def crosswalk_to_eu_ai_act(
         ),
     }
 
-    return json.dumps(result, indent=2)
+    return result
 
 
 # ---------------------------------------------------------------------------

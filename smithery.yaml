@@ -1,8 +1,158 @@
 name: gdpr-compliance-ai-mcp
-description: MEOK AI Labs — gdpr compliance
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp
-license: MIT
-runtime: python
-entrypoint: server.py
+description: '> **By [MEOK AI Labs](https://meok.ai)** -- Sovereign AI tools for everyone.'
+version: 1.0.0
+tools:
+- name: classify_processing
+  description: Classify data processing activities per GDPR articles. Determines which
+  parameters:
+  - name: processing_description
+    type: string
+    required: true
+  - name: data_categories
+    type: array
+    required: true
+  - name: data_subjects
+    type: array
+    required: true
+  - name: processing_purposes
+    type: array
+    required: true
+  - name: automated_decision_making
+    type: boolean
+    required: false
+  - name: large_scale
+    type: boolean
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: lawful_basis_assessment
+  description: Determine the appropriate lawful basis for processing under GDPR Article
+    6.
+  parameters:
+  - name: processing_purpose
+    type: string
+    required: true
+  - name: data_categories
+    type: array
+    required: true
+  - name: controller_type
+    type: string
+    required: false
+  - name: relationship_with_data_subject
+    type: string
+    required: false
+  - name: ai_processing
+    type: boolean
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: dpia_generator
+  description: Generate a Data Protection Impact Assessment per GDPR Article 35.
+  parameters:
+  - name: system_name
+    type: string
+    required: true
+  - name: system_description
+    type: string
+    required: true
+  - name: processing_purposes
+    type: array
+    required: true
+  - name: data_categories
+    type: array
+    required: true
+  - name: data_subjects
+    type: array
+    required: true
+  - name: data_volume
+    type: string
+    required: false
+  - name: retention_period
+    type: string
+    required: false
+  - name: third_party_sharing
+    type: boolean
+    required: false
+  - name: international_transfers
+    type: boolean
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: rights_request_handler
+  description: Handle data subject rights requests under GDPR Articles 15-22.
+  parameters:
+  - name: right_invoked
+    type: string
+    required: true
+  - name: data_subject_description
+    type: string
+    required: true
+  - name: processing_context
+    type: string
+    required: true
+  - name: ai_system_involved
+    type: boolean
+    required: false
+  - name: request_details
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: breach_notification
+  description: Assess breach severity and notification requirements under GDPR Articles
+  parameters:
+  - name: breach_description
+    type: string
+    required: true
+  - name: data_categories_affected
+    type: array
+    required: true
+  - name: number_of_records
+    type: integer
+    required: false
+  - name: breach_type
+    type: string
+    required: false
+  - name: detection_timestamp
+    type: string
+    required: false
+  - name: ai_system_involved
+    type: boolean
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: crosswalk_to_eu_ai_act
+  description: Map GDPR requirements to EU AI Act obligations. Shows where GDPR
+  parameters:
+  - name: gdpr_articles
+    type: array
+    required: false
+  - name: focus_area
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
