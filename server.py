@@ -23,6 +23,9 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/clawd/meok-labs-engine/shared"))
+from auth_middleware import check_access
 
 # Tier authentication (connects to Stripe subscriptions)
 try:
@@ -332,8 +335,7 @@ def classify_processing(
     automated_decision_making: bool = False,
     large_scale: bool = False,
     caller: str = "anonymous",
-    tier: str = "free",
-) -> str:
+    tier: str = "free", api_key: str = "") -> str:
     """Classify data processing activities per GDPR articles. Determines which
     GDPR articles apply, whether a DPIA is required, special category processing
     status, and automated decision-making obligations.
@@ -348,6 +350,9 @@ def classify_processing(
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(caller, tier):
         return json.dumps({"error": err})
 
@@ -437,8 +442,7 @@ def lawful_basis_assessment(
     relationship_with_data_subject: str = "customer",
     ai_processing: bool = True,
     caller: str = "anonymous",
-    tier: str = "free",
-) -> str:
+    tier: str = "free", api_key: str = "") -> str:
     """Determine the appropriate lawful basis for processing under GDPR Article 6.
     Evaluates all 6 lawful bases with AI-specific considerations and recommends
     the most appropriate basis with supporting rationale.
@@ -452,6 +456,9 @@ def lawful_basis_assessment(
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(caller, tier):
         return json.dumps({"error": err})
 
@@ -577,8 +584,7 @@ def dpia_generator(
     third_party_sharing: bool = False,
     international_transfers: bool = False,
     caller: str = "anonymous",
-    tier: str = "free",
-) -> str:
+    tier: str = "free", api_key: str = "") -> str:
     """Generate a Data Protection Impact Assessment per GDPR Article 35.
     Produces a structured DPIA with necessity assessment, risk evaluation,
     and mitigation measures. Required before high-risk AI processing begins.
@@ -596,6 +602,9 @@ def dpia_generator(
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(caller, tier):
         return json.dumps({"error": err})
 
@@ -730,8 +739,7 @@ def rights_request_handler(
     ai_system_involved: bool = True,
     request_details: str = "",
     caller: str = "anonymous",
-    tier: str = "free",
-) -> str:
+    tier: str = "free", api_key: str = "") -> str:
     """Handle data subject rights requests under GDPR Articles 15-22.
     Provides step-by-step guidance for responding to access, rectification,
     erasure, restriction, portability, objection, and automated decision-making
@@ -746,6 +754,9 @@ def rights_request_handler(
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(caller, tier):
         return json.dumps({"error": err})
 
@@ -864,8 +875,7 @@ def breach_notification(
     detection_timestamp: str = "",
     ai_system_involved: bool = False,
     caller: str = "anonymous",
-    tier: str = "free",
-) -> str:
+    tier: str = "free", api_key: str = "") -> str:
     """Assess breach severity and notification requirements under GDPR Articles
     33-34 (72-hour rule). Determines whether supervisory authority and data
     subject notification is required, and generates the notification content.
@@ -880,6 +890,9 @@ def breach_notification(
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(caller, tier):
         return json.dumps({"error": err})
 
@@ -1016,8 +1029,7 @@ def crosswalk_to_eu_ai_act(
     gdpr_articles: Optional[list[str]] = None,
     focus_area: str = "all",
     caller: str = "anonymous",
-    tier: str = "free",
-) -> str:
+    tier: str = "free", api_key: str = "") -> str:
     """Map GDPR requirements to EU AI Act obligations. Shows where GDPR
     compliance satisfies, complements, or creates tension with EU AI Act
     requirements. Essential for organizations deploying AI in the EU that
@@ -1029,6 +1041,9 @@ def crosswalk_to_eu_ai_act(
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
     if err := _check_rate_limit(caller, tier):
         return json.dumps({"error": err})
 
