@@ -25,3 +25,6 @@ Repository = "https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+gdpr_compliance_ai_mcp = "server:main"

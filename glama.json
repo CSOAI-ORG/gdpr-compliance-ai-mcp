@@ -1,0 +1,10 @@
+{
+  "name": "gdpr-compliance-ai-mcp",
+  "description": "MEOK AI Labs \u2014 gdpr-compliance-ai-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}
