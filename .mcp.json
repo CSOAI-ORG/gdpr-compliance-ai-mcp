@@ -1,6 +1,6 @@
 {
   "name": "gdpr-compliance-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** -- Sovereign AI tools for everyone.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 \n        ",
   "version": "1.0.0",
   "tools": [
     {
@@ -13,22 +13,13 @@
             "type": "string"
           },
           "data_categories": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "data_subjects": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "processing_purposes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "automated_decision_making": {
             "type": "boolean"
@@ -61,10 +52,7 @@
             "type": "string"
           },
           "data_categories": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "controller_type": {
             "type": "string"
@@ -101,22 +89,13 @@
             "type": "string"
           },
           "processing_purposes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "data_categories": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "data_subjects": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "data_volume": {
             "type": "string"
@@ -191,10 +170,7 @@
             "type": "string"
           },
           "data_categories_affected": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "number_of_records": {
             "type": "integer"
@@ -228,11 +204,7 @@
         "type": "object",
         "properties": {
           "gdpr_articles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
+            "type": "array"
           },
           "focus_area": {
             "type": "string"
