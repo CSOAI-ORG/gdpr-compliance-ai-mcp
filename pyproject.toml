@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "gdpr-compliance-ai-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs — gdpr-compliance-ai-mcp"
+description = "MCP server for gdpr compliance ai. Features classify processing, lawful basis assessment, dpia generator. From MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
