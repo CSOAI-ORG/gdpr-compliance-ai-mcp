@@ -1,0 +1,62 @@
+{
+  "name": "gdpr-compliance-ai",
+  "description": "GDPR Compliance for AI Systems server. Classify data processing activities, determine lawful basis under Article 6, generate Data Protection Impact Assessments (Article 35), handle data subject rights requests (Articles 15-22), assess breach notification requirements (72-hour rule), and crosswalk GDPR requirements to EU AI Act obligations. By MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "classify_processing",
+      "description": "Classify data processing activities per GDPR articles. Determines which"
+    },
+    {
+      "name": "lawful_basis_assessment",
+      "description": "Determine the appropriate lawful basis for processing under GDPR Article 6."
+    },
+    {
+      "name": "dpia_generator",
+      "description": "Generate a Data Protection Impact Assessment per GDPR Article 35."
+    },
+    {
+      "name": "rights_request_handler",
+      "description": "Handle data subject rights requests under GDPR Articles 15-22."
+    },
+    {
+      "name": "breach_notification",
+      "description": "Assess breach severity and notification requirements under GDPR Articles"
+    },
+    {
+      "name": "crosswalk_to_eu_ai_act",
+      "description": "Map GDPR requirements to EU AI Act obligations. Shows where GDPR"
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Data & Analytics",
+    "Productivity"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
