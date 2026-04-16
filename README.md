@@ -59,3 +59,18 @@ The `crosswalk_to_eu_ai_act` tool shows exactly where GDPR compliance satisfies 
 ## License
 
 MIT -- see [LICENSE](LICENSE)
+
+---
+
+## 🏢 Enterprise & Pro Licensing
+
+| Plan | Price | Link |
+|------|-------|------|
+| **Compliance Trinity** (EU AI Act + GDPR + ISO 42001) | £79/mo | [Subscribe](https://buy.stripe.com/eVq5kF2G0aEG3812Yg8k82i) |
+| **Full Suite** (9 MCPs) | £999/mo | [Subscribe](https://buy.stripe.com/6oU14p0xS4giaAtbuM8k82q) |
+| **Enterprise Assessment** | £5,000 | [Book Now](https://buy.stripe.com/00waEZ6Wg8wy7oh0Q88k82k) |
+
+> Part of [CSOAI](https://csoai.org) compliance ecosystem — 208+ MCP servers.
+
+---
+**MEOK AI Labs** | [meok.ai](https://meok.ai) | [csoai.org](https://csoai.org) | nicholas@meok.ai
