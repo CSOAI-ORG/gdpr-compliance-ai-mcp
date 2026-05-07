@@ -349,6 +349,22 @@ def classify_processing(
         large_scale: Whether processing is conducted on a large scale
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -455,6 +471,22 @@ def lawful_basis_assessment(
         ai_processing: Whether an AI/ML system is used in processing
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -601,6 +633,21 @@ def dpia_generator(
         international_transfers: Whether data is transferred outside the EEA
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -753,6 +800,22 @@ def rights_request_handler(
         request_details: Specific details of the request
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -889,6 +952,21 @@ def breach_notification(
         ai_system_involved: Whether an AI system was involved in the breach
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -1040,6 +1118,21 @@ def crosswalk_to_eu_ai_act(
         focus_area: Focus on "all", "transparency", "automated_decisions", "data_governance", or "risk"
         caller: Caller identifier for rate limiting
         tier: Access tier (free/pro)
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
