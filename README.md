@@ -1,3 +1,5 @@
+[![gdpr-compliance-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/gdpr-compliance-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/gdpr-compliance-ai-mcp)
+
 <div align="center">
 
 [![PyPI](https://img.shields.io/pypi/v/gdpr-compliance-ai-mcp)](https://pypi.org/project/gdpr-compliance-ai-mcp/)
