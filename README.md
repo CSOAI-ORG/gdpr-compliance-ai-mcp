@@ -1,81 +1,60 @@
-[![gdpr-compliance-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/gdpr-compliance-ai-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/gdpr-compliance-ai-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/gdpr-compliance-ai-mcp)](https://pypi.org/project/gdpr-compliance-ai-mcp/)
-
-[![gdpr-compliance-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/gdpr-compliance-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/gdpr-compliance-ai-mcp)
-
 <div align="center">
 
-[![PyPI](https://img.shields.io/pypi/v/gdpr-compliance-ai-mcp)](https://pypi.org/project/gdpr-compliance-ai-mcp/)
-[![Downloads](https://img.shields.io/pypi/dm/gdpr-compliance-ai-mcp)](https://pypi.org/project/gdpr-compliance-ai-mcp/)
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/gdpr-compliance-ai-mcp)](https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp/stargazers)
+# Gdpr Compliance Ai MCP
+
+**MCP server for gdpr compliance ai mcp operations**
+
+[![PyPI](https://img.shields.io/pypi/v/meok-gdpr-compliance-ai-mcp)](https://pypi.org/project/meok-gdpr-compliance-ai-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-# GDPR Compliance MCP
-
-**Full GDPR compliance assessment for AI/ML systems.**
-
-Lawful basis (Article 6) · DPIAs (Article 35) · Data subject rights (Articles 15-22) · Breach notification (72h rule) · EU AI Act crosswalk
-
-Penalties: up to 4% of global turnover or EUR 20M.
-
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-224+_servers-purple)](https://meok.ai)
-
-[Install](#install) · [Tools](#tools) · [Pricing](#pricing)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
 
-## Why This Exists
-
-Every AI system processing personal data needs GDPR compliance. Article 35 requires a DPIA for high-risk processing — which includes most ML training on personal data. Article 22 restricts automated decision-making. The 72-hour breach notification window leaves no room for manual processes.
-
-This MCP automates the GDPR assessment: classify processing activities, determine lawful basis, generate DPIAs, check data subject rights workflows, and crosswalk findings to EU AI Act obligations.
-
-## Install
-
-```bash
-pip install gdpr-compliance-ai-mcp
-```
+Gdpr Compliance Ai MCP provides AI-powered tools via the Model Context Protocol (MCP).
 
 ## Tools
 
-| Tool | GDPR Article | What it does |
-|------|-------------|-------------|
-| `classify_processing` | Art 4, 6 | Processing activity classification + lawful basis |
-| `generate_dpia` | Art 35 | Data Protection Impact Assessment generator |
-| `check_data_rights` | Art 15-22 | Data subject rights workflow audit |
-| `assess_breach_process` | Art 33-34 | 72-hour breach notification readiness |
-| `check_automated_decisions` | Art 22 | Automated decision-making compliance |
-| `crosswalk_eu_ai_act` | — | GDPR-to-EU AI Act obligation mapping |
-| `run_full_audit` | All | Complete GDPR readiness assessment |
-| `sign_attestation` | — | HMAC-SHA256 signed compliance certificate |
+| Tool | Description |
+|------|-------------|
+| `classify_processing` | Classify data processing activities per GDPR articles. Determines which |
+| `lawful_basis_assessment` | Determine the appropriate lawful basis for processing under GDPR Article 6. |
+| `dpia_generator` | Generate a Data Protection Impact Assessment per GDPR Article 35. |
+| `rights_request_handler` | Handle data subject rights requests under GDPR Articles 15-22. |
+| `breach_notification` | Assess breach severity and notification requirements under GDPR Articles |
+| `crosswalk_to_eu_ai_act` | Map GDPR requirements to EU AI Act obligations. Shows where GDPR |
 
-## Pricing
+## Installation
 
-| Tier | Price | What you get |
-|------|-------|-------------|
-| **Free** | £0 | 10 calls/day |
-| **Pro** | £199/mo | Unlimited + HMAC-signed attestations |
-| **Enterprise** | £1,499/mo | Multi-tenant + co-branded reports |
-
-[Subscribe to Pro](https://buy.stripe.com/14A4gB3K4eUWgYR56o8k836) · [Enterprise](https://buy.stripe.com/4gM9AV80kaEG0ZT42k8k837)
-
-## Attestation API
-
-```
-POST https://meok-attestation-api.vercel.app/sign
-GET  https://meok-attestation-api.vercel.app/verify/{cert_id}
+```bash
+pip install meok-gdpr-compliance-ai-mcp
 ```
 
-## Links
+## Usage with Claude Desktop
 
-- Website: [meok.ai](https://meok.ai)
-- All MCP servers: [meok.ai/labs/mcp/servers](https://meok.ai/labs/mcp/servers)
-- Enterprise support: nicholas@csoai.org
+Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "gdpr-compliance-ai-mcp": {
+      "command": "python",
+      "args": ["-m", "meok_gdpr_compliance_ai_mcp.server"]
+    }
+  }
+}
+```
+
+## Usage with FastMCP
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+# This server exposes 6 tool(s) via MCP
+# See server.py for full implementation
+```
 
 ## License
 
-MIT
-<!-- mcp-name: io.github.CSOAI-ORG/gdpr-compliance-ai-mcp -->
+MIT © [MEOK AI Labs](https://meok.ai)
