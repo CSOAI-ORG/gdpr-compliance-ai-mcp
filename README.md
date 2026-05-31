@@ -1,60 +1,78 @@
-<div align="center">
-
 # Gdpr Compliance Ai MCP
 
-**MCP server for gdpr compliance ai mcp operations**
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/gdpr_compliance_ai_mcp/)
 
-[![PyPI](https://img.shields.io/pypi/v/meok-gdpr-compliance-ai-mcp)](https://pypi.org/project/meok-gdpr-compliance-ai-mcp/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
+> GDPR compliance MCP — DPIA automation, Article 30 records, Article 22 automated decision-making a...
 
-</div>
+GDPR compliance MCP — DPIA automation, Article 30 records, Article 22 automated decision-making audit, data subject request workflow.
 
-## Overview
+---
 
-Gdpr Compliance Ai MCP provides AI-powered tools via the Model Context Protocol (MCP).
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `classify_processing` | Classify data processing activities per GDPR articles. Determines which |
-| `lawful_basis_assessment` | Determine the appropriate lawful basis for processing under GDPR Article 6. |
-| `dpia_generator` | Generate a Data Protection Impact Assessment per GDPR Article 35. |
-| `rights_request_handler` | Handle data subject rights requests under GDPR Articles 15-22. |
-| `breach_notification` | Assess breach severity and notification requirements under GDPR Articles |
-| `crosswalk_to_eu_ai_act` | Map GDPR requirements to EU AI Act obligations. Shows where GDPR |
-
-## Installation
+## 🚀 Quick Start
 
 ```bash
-pip install meok-gdpr-compliance-ai-mcp
+# Install via pip
+pip install gdpr_compliance_ai_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install gdpr-compliance-ai-mcp --client claude
 ```
 
-## Usage with Claude Desktop
+## ✨ Features
 
-Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
+- GDPR Chapter V compliance
+- Cross-region data guard
+- Data localization
+- Transfer mechanism validation
+- Breach detection
 
-```json
-{
-  "mcpServers": {
-    "gdpr-compliance-ai-mcp": {
-      "command": "python",
-      "args": ["-m", "meok_gdpr_compliance_ai_mcp.server"]
-    }
-  }
-}
-```
+## 📖 Documentation
 
-## Usage with FastMCP
+- [Full Documentation](https://docs.meok.ai/gdpr-compliance-ai-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-```python
-from mcp.server.fastmcp import FastMCP
+## 🛡️ Compliance
 
-# This server exposes 6 tool(s) via MCP
-# See server.py for full implementation
-```
+This MCP server is built with **EU AI Act compliance** built-in:
 
-## License
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-MIT © [MEOK AI Labs](https://meok.ai)
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
+
+## 🏢 Enterprise
+
+Need custom development, SLA guarantees, or white-label deployment?
+
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
+
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
+
+## 🤝 Part of the MEOK Ecosystem
+
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
+
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
+
+## 📜 License
+
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
+
+---
+
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
