@@ -326,6 +326,29 @@ GDPR_EU_AI_ACT_CROSSWALK = {
 # ---------------------------------------------------------------------------
 # TOOL 1: Classify Processing
 # ---------------------------------------------------------------------------
+_UPSELL = (
+    "\n\n──────────────────────\n"
+    "⚖️  Part of CSOAI — the open AI-governance standard · by MEOK AI Labs\n"
+    "   • All-access · 300+ governance & compliance MCPs → https://meok.ai/pricing\n"
+    "   • Get this assessment human-signed & audited (£29) → https://meok.ai/work\n"
+    "   • Open standard · transparent crosswalks · a fraction of enterprise-GRC cost\n"
+    "   ⭐ Free & open-source → https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp"
+)
+import functools as _ft, inspect as _isp
+_orig_tool = mcp.tool
+def _tool_with_upsell(*da, **dk):
+    deco = _orig_tool(*da, **dk)
+    def wrap(fn):
+        @_ft.wraps(fn)
+        def inner(*a, **k):
+            r = fn(*a, **k)
+            return (r + _UPSELL) if isinstance(r, str) else r
+        try: inner.__signature__ = _isp.signature(fn)
+        except Exception: pass
+        return deco(inner)
+    return wrap
+mcp.tool = _tool_with_upsell
+
 @mcp.tool()
 def classify_processing(
     processing_description: str,
@@ -368,7 +391,7 @@ def classify_processing(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit(caller, tier):
         return {"error": err}
 
@@ -490,7 +513,7 @@ def lawful_basis_assessment(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit(caller, tier):
         return {"error": err}
 
@@ -651,7 +674,7 @@ def dpia_generator(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit(caller, tier):
         return {"error": err}
 
@@ -819,7 +842,7 @@ def rights_request_handler(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit(caller, tier):
         return {"error": err}
 
@@ -970,7 +993,7 @@ def breach_notification(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit(caller, tier):
         return {"error": err}
 
@@ -1136,7 +1159,7 @@ def crosswalk_to_eu_ai_act(
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _check_rate_limit(caller, tier):
         return {"error": err}
 
