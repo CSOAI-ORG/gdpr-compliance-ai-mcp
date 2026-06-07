@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.CSOAI-ORG/gdpr-compliance-ai-mcp -->
 # Gdpr Compliance Ai MCP
 
 > **⚖️ Built by [MEOK AI Labs](https://meok.ai) / [CSOAI](https://csoai.org).** Need this applied to _your_ system fast? Book a 30-min Founder Office Hour (£29) → **https://meok.ai/work** · Full governance platform → **https://meok.ai**
@@ -100,3 +101,28 @@ MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
 <p align="center">
   <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
 </p>
+
+
+## Configuration
+
+Add to your `claude_desktop_config.json` (Claude Desktop) or your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "gdpr-compliance-ai-mcp": {
+      "command": "uvx",
+      "args": ["gdpr-compliance-ai-mcp"]
+    }
+  }
+}
+```
+
+Or: `pip install gdpr-compliance-ai-mcp` then run the `gdpr-compliance-ai-mcp` command (stdio transport).
+
+## Examples
+
+Once configured, ask your assistant, for example:
+- "Use `classify_processing` to …"
+- "Use `lawful_basis_assessment` to …"
+- "Use `dpia_generator` to …"
