@@ -1,0 +1,77 @@
+{
+  "name": "gdpr-compliance-ai-mcp",
+  "description": "Gdpr Compliance Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/gdpr-compliance-ai-mcp.html",
+  "version": "1.1.5",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "classify_processing",
+      "name": "Classify Processing",
+      "description": "classify_processing via gdpr-compliance-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "lawful_basis_assessment",
+      "name": "Lawful Basis Assessment",
+      "description": "lawful_basis_assessment via gdpr-compliance-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "dpia_generator",
+      "name": "Dpia Generator",
+      "description": "dpia_generator via gdpr-compliance-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "rights_request_handler",
+      "name": "Rights Request Handler",
+      "description": "rights_request_handler via gdpr-compliance-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "breach_notification",
+      "name": "Breach Notification",
+      "description": "breach_notification via gdpr-compliance-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "crosswalk_to_eu_ai_act",
+      "name": "Crosswalk To Eu Ai Act",
+      "description": "crosswalk_to_eu_ai_act via gdpr-compliance-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
