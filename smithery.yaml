@@ -1,159 +1,37 @@
-name: gdpr-compliance-ai-mcp
-description: MCP server for gdpr compliance ai. Features classify processing, lawful
-  basis assessment, dpia generator. From MEOK AI Labs.
-version: 1.0.0
-tools:
-- name: classify_processing
-  description: Classify data processing activities per GDPR articles. Determines which
-  parameters:
-  - name: processing_description
-    type: string
-    required: true
-  - name: data_categories
-    type: array
-    required: true
-  - name: data_subjects
-    type: array
-    required: true
-  - name: processing_purposes
-    type: array
-    required: true
-  - name: automated_decision_making
-    type: boolean
-    required: false
-  - name: large_scale
-    type: boolean
-    required: false
-  - name: caller
-    type: string
-    required: false
-  - name: tier
-    type: string
-    required: false
-- name: lawful_basis_assessment
-  description: Determine the appropriate lawful basis for processing under GDPR Article
-    6.
-  parameters:
-  - name: processing_purpose
-    type: string
-    required: true
-  - name: data_categories
-    type: array
-    required: true
-  - name: controller_type
-    type: string
-    required: false
-  - name: relationship_with_data_subject
-    type: string
-    required: false
-  - name: ai_processing
-    type: boolean
-    required: false
-  - name: caller
-    type: string
-    required: false
-  - name: tier
-    type: string
-    required: false
-- name: dpia_generator
-  description: Generate a Data Protection Impact Assessment per GDPR Article 35.
-  parameters:
-  - name: system_name
-    type: string
-    required: true
-  - name: system_description
-    type: string
-    required: true
-  - name: processing_purposes
-    type: array
-    required: true
-  - name: data_categories
-    type: array
-    required: true
-  - name: data_subjects
-    type: array
-    required: true
-  - name: data_volume
-    type: string
-    required: false
-  - name: retention_period
-    type: string
-    required: false
-  - name: third_party_sharing
-    type: boolean
-    required: false
-  - name: international_transfers
-    type: boolean
-    required: false
-  - name: caller
-    type: string
-    required: false
-  - name: tier
-    type: string
-    required: false
-- name: rights_request_handler
-  description: Handle data subject rights requests under GDPR Articles 15-22.
-  parameters:
-  - name: right_invoked
-    type: string
-    required: true
-  - name: data_subject_description
-    type: string
-    required: true
-  - name: processing_context
-    type: string
-    required: true
-  - name: ai_system_involved
-    type: boolean
-    required: false
-  - name: request_details
-    type: string
-    required: false
-  - name: caller
-    type: string
-    required: false
-  - name: tier
-    type: string
-    required: false
-- name: breach_notification
-  description: Assess breach severity and notification requirements under GDPR Articles
-  parameters:
-  - name: breach_description
-    type: string
-    required: true
-  - name: data_categories_affected
-    type: array
-    required: true
-  - name: number_of_records
-    type: integer
-    required: false
-  - name: breach_type
-    type: string
-    required: false
-  - name: detection_timestamp
-    type: string
-    required: false
-  - name: ai_system_involved
-    type: boolean
-    required: false
-  - name: caller
-    type: string
-    required: false
-  - name: tier
-    type: string
-    required: false
-- name: crosswalk_to_eu_ai_act
-  description: Map GDPR requirements to EU AI Act obligations. Shows where GDPR
-  parameters:
-  - name: gdpr_articles
-    type: array
-    required: false
-  - name: focus_area
-    type: string
-    required: false
-  - name: caller
-    type: string
-    required: false
-  - name: tier
-    type: string
-    required: false
+# smithery.yaml — Smithery (https://smithery.ai) submission payload
+# Repo: CSOAI-ORG/gdpr-compliance-ai-mcp
+# Generated: 2026-06-09
+# Transport: stdio (PyPI package, installed via uvx)
+# See: DISTRIBUTION_GAPS_2026-06-08.md for the channel strategy
+startCommand:
+  type: stdio
+  timeout: 120000
+  pingInterval: 5000
+  pingTimeout: 30000
+  configSchema:
+    type: object
+    required: []
+    properties:
+      apiKey:
+        type: string
+        description: "MEOK API key (optional; required for x402 paywalled tools)"
+        default: ""
+      x402PayTo:
+        type: string
+        description: "USDC address for x402 micropayments (default: meok.ai wallet)"
+        default: ""
+      logLevel:
+        type: string
+        description: "Log level (debug, info, warn, error)"
+        default: "info"
+    additionalProperties: false
+  commandFunction: |-
+    (config) => ({
+      command: 'uvx',
+      args: ['gdpr_compliance_ai'],
+      env: {
+        MEOK_API_KEY: config.apiKey || '',
+        X402_PAY_TO: config.x402PayTo || '',
+        MEOK_LOG_LEVEL: config.logLevel || 'info',
+      }
+    })
