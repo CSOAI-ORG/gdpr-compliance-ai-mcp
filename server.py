@@ -42,6 +42,13 @@ _usage: dict[str, list[datetime]] = defaultdict(list)
 
 
 def _check_rate_limit(caller: str = "anonymous", tier: str = "free") -> Optional[str]:
+    # 2026-06-12 PM22: wire /verify call site (fail-open)
+    try:
+        _meter = _server_meter_check("gdpr_compliance_ai")
+        if not _meter.get("allowed", True):
+            return "Free tier limit reached. Upgrade to Pro at https://meok.ai/mcp/gdpr-compliance-ai/pro"
+    except Exception:
+        pass  # fail-open
     if tier == "pro":
         return None
     now = datetime.now()
@@ -1237,6 +1244,30 @@ def crosswalk_to_eu_ai_act(
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
     mcp.run()
+
+
+# ── 2026-06-12 PM22: server-side metering via live /verify (fail-open) ──
+import urllib.request as _meter_urlreq
+import urllib.error as _meter_urlerr
+import json as _meter_json
+import os as _meter_os
+_MEOK_API_KEY_GDPR = _meter_os.environ.get("MEOK_API_KEY", "")
+_METER_URL = _meter_os.environ.get("MEOK_VERIFY_URL", "https://meok-attestation-api.vercel.app/verify")
+
+
+def _server_meter_check(tool: str) -> dict:
+    """POST {api_key, tool} to /verify. Returns metering dict. Fail-open."""
+    if not _MEOK_API_KEY_GDPR:
+        return {"allowed": True, "tier": "anon", "note": "MEOK_API_KEY not set; metering skipped"}
+    try:
+        body = _meter_json.dumps({"api_key": _MEOK_API_KEY_GDPR, "tool": tool}).encode()
+        req = _meter_urlreq.Request(_METER_URL, data=body,
+            headers={"Content-Type": "application/json"}, method="POST")
+        with _meter_urlreq.urlopen(req, timeout=4) as r:
+            return _meter_json.loads(r.read())
+    except (_meter_urlerr.URLError, _meter_urlerr.HTTPError, TimeoutError, ValueError) as e:
+        # Fail-open: never break the tool on a metering failure
+        return {"allowed": True, "tier": "unknown", "note": f"metering failed (fail-open): {e}"}
 
 
 # ── MEOK monetization layer (Stripe upgrade · PAYG · pricing) ──────────
