@@ -1,0 +1,17 @@
+{
+  "name": "knowing_yucca/gdpr-compliance-ai-mcp",
+  "title": "MEOK Gdpr Compliance Ai Mcp",
+  "description": "Compliance MCP server: gdpr-compliance-ai-mcp",
+  "readme": "# MEOK Gdpr Compliance Ai Mcp\n\nCompliance MCP from MEOK AI.",
+  "categories": [
+    "AI",
+    "Compliance",
+    "Governance"
+  ],
+  "defaultRunInput": {
+    "tool": "quick_scan",
+    "arguments": {
+      "system": "example"
+    }
+  }
+}
