@@ -1,0 +1,5 @@
+{
+  "name": "gdpr-compliance-ai-mcp",
+  "description": "GDPR (Regulation (EU) 2016/679) compliance for AI systems processing personal data.",
+  "version": "1.10.2"
+}
