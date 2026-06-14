@@ -1,22 +1,33 @@
 # gdpr-compliance-ai-mcp
-
-> MCP server for gdpr compliance ai. Features classify processing, lawful basis assessment, dpia generator. From MEOK AI Labs.
-
-MCP server by MEOK AI Labs. Framework: fastmcp. Transport: stdio.
-
-## Tools
-- classify_processing
-- lawful_basis_assessment
-- dpia_generator
-- rights_request_handler
-- breach_notification
-- crosswalk_to_eu_ai_act
+> GDPR Compliance GDPR (Regulation (EU) 2016/679) compliance for AI systems processing personal data. By MEOK AI Labs.
 
 ## Install
-```
 pip install gdpr-compliance-ai-mcp
-```
 
-## Links
-- PyPI: https://pypi.org/project/gdpr-compliance-ai-mcp/
-- Docs: https://meok.ai
+## Auth
+- Free tier: 100 calls/month, no API key needed
+- Pro tier: unlimited, set MEOK_API_KEY env var
+
+## Tools
+
+### quick_scan
+Instant compliance check from a system description. No API key required.
+- `system` (str): One-sentence AI system description
+- Returns: compliance_status, top_obligations
+
+### deadline_check
+Regulatory deadlines with days remaining.
+- Returns: List of dates with days_remaining
+
+### framework_scan
+Detailed compliance assessment.
+- `framework` (str, required): GDPR or other framework
+- `system` (str, required): System description
+- Returns: compliance_score, gaps, remediation
+
+## Endpoints
+- MCP: https://gateway.meok.ai/mcp
+- A2A: https://gateway.meok.ai/.well-known/agent-card.json
+
+## License
+MIT — https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp/blob/main/LICENSE

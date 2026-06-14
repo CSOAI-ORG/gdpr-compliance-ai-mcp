@@ -1,24 +1,15 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.CSOAI-ORG/gdpr-compliance-ai-mcp",
-  "version": "1.1.12",
-  "description": "Gdpr Compliance Ai MCP Server by MEOK AI Labs",
-  "repository": {
-    "url": "https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp",
-    "source": "github"
-  },
-  "packages": [
-    {
-      "registryType": "pypi",
-      "identifier": "gdpr-compliance-ai-mcp",
-      "version": "1.1.12",
-      "runtimeHint": "python",
-      "transport": {
-        "type": "stdio"
-      }
-    }
-  ],
+  "name": "CSOAI-ORG/gdpr-compliance-ai-mcp",
+  "title": "GDPR Compliance",
+  "version": "1.10.2",
+  "description": "GDPR (Regulation (EU) 2016/679) compliance for AI systems processing personal data. Part of the MEOK 28-hive MCP governance mesh. 13 unified frameworks + attestation chain.",
   "websiteUrl": "https://meok.ai/gdpr-compliance-ai-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp",
+    "source": "https://github.com/CSOAI-ORG/gdpr-compliance-ai-mcp"
+  },
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/CSOAI-ORG/gdpr-compliance-ai-mcp/main/assets/icon.svg",
@@ -29,6 +20,27 @@
       "theme": "dark"
     }
   ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "gdpr-compliance-ai-mcp",
+      "version": "1.10.2",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "category": "ai-governance",
+      "subcategories": [
+        "compliance",
+        "audit"
+      ],
+      "tier": "flagship",
+      "openSsfScorecard": "7.06/10"
+    }
+  },
   "metadata": {
     "publisher": "MEOK AI Labs",
     "categories": [
@@ -59,5 +71,13 @@
       "name": "gdpr-compliance-ai-mcp on GitHub",
       "mimeType": "text/html"
     }
+  ],
+  "publisher": {
+    "name": "CSOAI Ltd",
+    "url": "https://csoai.org"
+  },
+  "categories": [
+    "compliance",
+    "ai-governance"
   ]
 }
