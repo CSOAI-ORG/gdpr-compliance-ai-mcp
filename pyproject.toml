@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "gdpr-compliance-ai-mcp"
-version = "1.1.12"
+version = "1.1.13"
 readme = "README.md"
 description = "MCP server for gdpr compliance ai. Features classify processing, lawful basis assessment, dpia generator. From MEOK AI Labs."
 license = {file = "LICENSE"}
@@ -29,3 +29,22 @@ only-include = ["server.py", "auth_middleware.py"]
 
 [project.scripts]
 gdpr_compliance_ai_mcp = "server:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N"]
+ignore = ["E501"]
+
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_Configs = true
+disallow_untyped_defs = true
+
