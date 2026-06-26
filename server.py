@@ -1246,7 +1246,6 @@ def main():
     mcp.run()
 
 
-<<<<<<< Updated upstream
 # ── 2026-06-12 PM22: server-side metering via live /verify (fail-open) ──
 import urllib.request as _meter_urlreq
 import urllib.error as _meter_urlerr
@@ -1269,10 +1268,6 @@ def _server_meter_check(tool: str) -> dict:
     except (_meter_urlerr.URLError, _meter_urlerr.HTTPError, TimeoutError, ValueError) as e:
         # Fail-open: never break the tool on a metering failure
         return {"allowed": True, "tier": "unknown", "note": f"metering failed (fail-open): {e}"}
-=======
-if __name__ == "__main__":
-    main()
->>>>>>> Stashed changes
 
 
 # ── MEOK monetization layer (Stripe upgrade · PAYG · pricing) ──────────
