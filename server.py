@@ -37,7 +37,7 @@ except ImportError:
 # ---------------------------------------------------------------------------
 # Rate limiting
 # ---------------------------------------------------------------------------
-FREE_DAILY_LIMIT = 10
+FREE_DAILY_LIMIT = 50
 _usage: dict[str, list[datetime]] = defaultdict(list)
 
 
@@ -1242,10 +1242,11 @@ def crosswalk_to_eu_ai_act(
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
-if __name__ == "__main__":
+def main():
     mcp.run()
 
 
+<<<<<<< Updated upstream
 # ── 2026-06-12 PM22: server-side metering via live /verify (fail-open) ──
 import urllib.request as _meter_urlreq
 import urllib.error as _meter_urlerr
@@ -1268,12 +1269,16 @@ def _server_meter_check(tool: str) -> dict:
     except (_meter_urlerr.URLError, _meter_urlerr.HTTPError, TimeoutError, ValueError) as e:
         # Fail-open: never break the tool on a metering failure
         return {"allowed": True, "tier": "unknown", "note": f"metering failed (fail-open): {e}"}
+=======
+if __name__ == "__main__":
+    main()
+>>>>>>> Stashed changes
 
 
 # ── MEOK monetization layer (Stripe upgrade · PAYG · pricing) ──────────
 # Free tier is zero-config. Upgrade to Pro (unlimited) or pay-as-you-go per call.
 import os as _meok_os
-MEOK_STRIPE_UPGRADE = "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"  # Pro (unlimited)
+MEOK_STRIPE_UPGRADE = "https://buy.stripe.com/aFa7sNcgAdQS0ZT1Uc8k91t"  # Pro (unlimited)
 MEOK_PAYG_KEY = _meok_os.environ.get("MEOK_PAYG_KEY", "")  # set to enable PAYG (x402 / ~GBP0.05 per call)
 MEOK_PRICING = "https://meok.ai/pricing"
 
